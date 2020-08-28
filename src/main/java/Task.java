@@ -14,6 +14,7 @@ public class Task {
     }
     //Method to mark task when it is done
     public void markAsDone() {
+
         this.isDone = true;
     }
     //Method to mark task as undone

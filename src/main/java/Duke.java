@@ -38,8 +38,7 @@ public class Duke {
                         Task t = new Task(itemList[j]);
                         t.markAsDone();
                         System.out.print(j + 1 + "."+"["+t.getStatusIcon() +"] "+ itemList[j] + "\n");
-                        }
-                        else{
+                        } else{
                         Task t = new Task(itemList[j]);
                         t.marknotDone();
                         System.out.print(j + 1 + "."+"["+t.getStatusIcon()+"] " + itemList[j] + "\n");
@@ -48,9 +47,8 @@ public class Duke {
                     }
 
                     System.out.print("____________________________________________________________\n");
-                }
 
-                else if(doneSide[0].equals("done")){
+                } else if(doneSide[0].equals("done")){
                     Task t = new Task(itemList[i]);
                     t.markAsDone();
                     int taskNum=Integer.parseInt(doneSide[1]);
@@ -59,8 +57,7 @@ public class Duke {
                     System.out.print("\t["+t.getStatusIcon()+"] "+itemList[taskNum-1]+"\n");
                     System.out.print("____________________________________________________________\n");
                     numTasks.setNumTasks(taskNum);
-                }
-                else {
+                } else {
                     itemList[i] = line;
                     System.out.print("____________________________________________________________\n");
                     System.out.print("added: " + line);
