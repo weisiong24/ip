@@ -3,14 +3,7 @@ import java.util.Scanner;
 
 public class Duke {
     public static void main(String[] args) {
-        String logo = "____________________________________________________________\n"
-                + "Hello! I'm Duke \n"
-                + "What can I do for you? \n"
-                +" _   _  ____  _     _     ____ \n" +
-                "| |_| || ===|| |__ | |__ / () \\\n" +
-                "|_| |_||____||____||____|\\____/\n"
-                + "____________________________________________________________\n";
-        System.out.println(logo);
+        showWelcomeMessage();
         //String Array of size 100 created to store item list
         String[] itemList = new String[100];
         String line;
@@ -127,11 +120,7 @@ public class Duke {
                     itemList[i] = taskItem;
                     numTasks.setEventNum(numTasks.getTaskCount());
                 } else{
-                    itemList[i] = line;
-                    System.out.print("____________________________________________________________\n");
-                    System.out.print("added: " + line);
-                    System.out.print("\n____________________________________________________________\n");
-                    numTasks.setTaskCount(taskCounts+=1);
+                    taskCounts = addItemList(itemList, line, numTasks, taskCounts, i);
                 }
 
                 line = in.nextLine();
@@ -141,9 +130,33 @@ public class Duke {
                 }
             }
         }
+        showByeMessage();
+    }
+    //Three methods that are refactored for readability
+    private static int addItemList(String[] itemList, String line, Duke numTasks, int taskCounts, int i) {
+        itemList[i] = line;
+        System.out.print("____________________________________________________________\n");
+        System.out.print("added: " + line);
+        System.out.print("\n____________________________________________________________\n");
+        numTasks.setTaskCount(taskCounts +=1);
+        return taskCounts;
+    }
+
+    private static void showByeMessage() {
         System.out.print("____________________________________________________________\n");
         System.out.print("Bye. Hope to see you again soon!\n");
         System.out.print("____________________________________________________________\n");
+    }
+
+    private static void showWelcomeMessage() {
+        String logo = "____________________________________________________________\n"
+                + "Hello! I'm Duke \n"
+                + "What can I do for you? \n"
+                +" _   _  ____  _     _     ____ \n" +
+                "| |_| || ===|| |__ | |__ / () \\\n" +
+                "|_| |_||____||____||____|\\____/\n"
+                + "____________________________________________________________\n";
+        System.out.println(logo);
     }
 
     /**
