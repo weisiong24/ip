@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Duke {
     public static void main(String[] args) {
+
         showWelcomeMessage();
         //String Array of size 100 created to store item list
         String[] itemList = new String[100];
@@ -12,7 +13,7 @@ public class Duke {
 
         Duke numTasks =new Duke();
         int taskCounts=0;
-        
+
         /**
          * When user enter list it will show a list of input saved
          * to do command add a item into the list and mark it as task
@@ -21,111 +22,182 @@ public class Duke {
          * When user enter done it will mark the task as done into the list
          * It will run continuously till bye command is given
          */
-        while(!line.equals("bye")){
+        while(!line.equals("bye")) {
             for(int i=0;i<100;i++) {
+
                 String[] doneSide = line.split(" ");
                 String[] task = line.split(" ");
 
                 if(line.equals("list")) {
-                    System.out.print("____________________________________________________________\n");
+
+                    printLines();
                     System.out.print("Here are the tasks in your list:\n");
-                    System.out.print("____________________________________________________________\n");
+                    printLines();
 
                     for(int j=0;j<i;j++) {
-                        if(numTasks.getNumTasks()==j+1){
-                        Task t = new Task(itemList[j]);
-                        t.markAsDone();
+
+                        if(numTasks.getNumTasks()==j+1) {
+
+                            Task t = new Task(itemList[j]);
+                            t.markAsDone();
                             if(numTasks.getTodoNum()==j+1) {
+
                                 System.out.print(j + 1 + "." + "[" + "T" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
 
-                            } else if(numTasks.getDeadlineNum()==j+1){
+                            } else if(numTasks.getDeadlineNum()==j+1) {
+
                                 System.out.print(j + 1 + "." + "[" + "D" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
 
-                            } else if(numTasks.getEventNum()==j+1){
+                            } else if(numTasks.getEventNum()==j+1) {
+
                                 System.out.print(j + 1 + "." + "[" + "E" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
 
                             } else {
-                                System.out.print(j + 1 + "." + "[" + " " + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
+
+                                System.out.print(j + 1 + "." + "[" + "T" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
+
                             }
 
-                        } else{
+                        } else {
+
                             Task t = new Task(itemList[j]);
                             t.markUndone();
                             if(numTasks.getTodoNum()==j+1) {
+
                                 System.out.print(j + 1 + "." + "[" + "T" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
 
-                            } else if(numTasks.getDeadlineNum()==j+1){
+                            } else if(numTasks.getDeadlineNum()==j+1) {
+
                                 System.out.print(j + 1 + "." + "[" + "D" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
 
-                            } else if(numTasks.getEventNum()==j+1){
+                            } else if(numTasks.getEventNum()==j+1) {
+
                                 System.out.print(j + 1 + "." + "[" + "E" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
 
                             } else {
-                                System.out.print(j + 1 + "." + "[" + " " + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
+
+                                System.out.print(j + 1 + "." + "[" + "T" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
 
                             }
                         }
                     }
                     i-=1;
 
-                    System.out.print("____________________________________________________________\n");
+                    printLines();
 
-                } else if(doneSide[0].equals("done")){
+                } else if(doneSide[0].equals("done")) {
+
                     Task t = new Task(itemList[i]);
                     t.markAsDone();
                     int taskNum=Integer.parseInt(doneSide[1]);
 
-                    System.out.print("____________________________________________________________\n");
+                    printLines();
                     System.out.print("Nice! I've marked this task as done: \n");
                     System.out.print("\t["+t.getStatusIcon()+"] "+itemList[taskNum-1]+"\n");
-                    System.out.print("____________________________________________________________\n");
+                    printLines();
                     numTasks.setNumTasks(taskNum);
 
-                } else if(task[0].equals("todo")){
-                    numTasks.setTaskCount(taskCounts+=1);
-                    String taskItem= line.substring(5);
-                    Todo t = new Todo(taskItem);
+                } else if(task[0].equals("todo")) {
 
-                    System.out.print("____________________________________________________________\n");
-                    System.out.print("Got it. I've added this task: \n");
-                    System.out.print("\t"+t.toString());
-                    System.out.print( "Now you have "+numTasks.getTaskCount()+" tasks in the list.");
-                    System.out.print("\n____________________________________________________________\n");
-                    itemList[i] = taskItem;
-                    numTasks.setTodoNum(numTasks.getTaskCount());
+                    if(!line.substring(4).equals(" ") && !line.substring(3).equals("o")) {
 
-                } else if(task[0].equals("deadline")){
-                    numTasks.setTaskCount(taskCounts+=1);
-                    String taskItem= line.substring(9);
-                    Deadline d = new Deadline(taskItem,"");
+                        numTasks.setTaskCount(taskCounts+=1);
+                        Todo t = new Todo(line.substring(5));
+                        printLines();
+                        System.out.print("Got it. I've added this task: \n");
+                        System.out.print("\t" + t.toString());
+                        System.out.print("Now you have " + numTasks.getTaskCount() + " tasks in the list.\n");
+                        printLines();
+                        itemList[i] = line.substring(5);
+                        numTasks.setTodoNum(numTasks.getTaskCount());
 
-                    System.out.print("____________________________________________________________\n");
-                    System.out.print("Got it. I've added this task: \n");
-                    System.out.print("\t"+d.toString());
-                    System.out.print( "Now you have "+numTasks.getTaskCount()+" tasks in the list.");
-                    System.out.print("\n____________________________________________________________\n");
-                    itemList[i] = taskItem;
-                    numTasks.setDeadlineNum(numTasks.getTaskCount());
+                    } else {
+                        try {
 
+                            i-=1;
+                            throw new DukeException();
+                        } catch (DukeException e) {
+
+                            printLines();
+                            System.out.print("☹ OOPS!!! The description of a todo cannot be empty.\n");
+                            printLines();
+                        }
+                    }
+
+                } else if(task[0].equals("deadline")) {
+                    if(!line.substring(8).equals(" ") && !line.substring(7).equals("e")) {
+
+                        numTasks.setTaskCount(taskCounts += 1);
+                        String taskItem = line.substring(9);
+                        Deadline d = new Deadline(taskItem, "");
+
+                        printLines();
+                        System.out.print("Got it. I've added this task: \n");
+                        System.out.print("\t" + d.toString());
+                        System.out.print("Now you have " + numTasks.getTaskCount() + " tasks in the list.\n");
+                        printLines();
+                        itemList[i] = taskItem;
+                        numTasks.setDeadlineNum(numTasks.getTaskCount());
+                    } else {
+                        try {
+
+                            i-=1;
+                            throw new DukeException();
+                        } catch (DukeException e) {
+
+                            printLines();
+                            System.out.print("☹ OOPS!!! The description of a deadline cannot be empty.\n");
+                            printLines();
+                        }
+                    }
                 }
-                else if(task[0].equals("event")){
-                    numTasks.setTaskCount(taskCounts+=1);
-                    String taskItem= line.substring(6);
-                    Event e = new Event(taskItem,"");
-                    System.out.print("____________________________________________________________\n");
-                    System.out.print("Got it. I've added this task: \n");
-                    System.out.print("\t"+e.toString());
-                    System.out.print( "Now you have "+numTasks.getTaskCount()+" tasks in the list.");
-                    System.out.print("\n____________________________________________________________\n");
-                    itemList[i] = taskItem;
-                    numTasks.setEventNum(numTasks.getTaskCount());
-                } else{
-                    taskCounts = addItemList(itemList, line, numTasks, taskCounts, i);
+                else if(task[0].equals("event")) {
+
+                    if(!line.substring(5).equals(" ") && !line.substring(4).equals("t")) {
+
+                        numTasks.setTaskCount(taskCounts += 1);
+                        String taskItem = line.substring(6);
+                        Event e = new Event(taskItem, "");
+                        printLines();
+                        System.out.print("Got it. I've added this task: \n");
+                        System.out.print("\t" + e.toString());
+                        System.out.print("Now you have " + numTasks.getTaskCount() + " tasks in the list.\n");
+                        printLines();
+                        itemList[i] = taskItem;
+                        numTasks.setEventNum(numTasks.getTaskCount());
+
+                    } else {
+                        try {
+
+                            i-=1;
+                            throw new DukeException();
+                        } catch (DukeException e) {
+
+                            printLines();
+                            System.out.print("☹ OOPS!!! The description of a event cannot be empty.\n");
+                            printLines();
+
+                        }
+                    }
+                } else {
+                    try {
+
+                        i-=1;
+                        throw new DukeException();
+
+                    } catch (DukeException n) {
+
+                        printLines();
+                        System.out.print("☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n");
+                        printLines();
+
+                    }
                 }
 
                 line = in.nextLine();
 
-                if (line.equals("bye")){
+                if (line.equals("bye")) {
+
                     break;
                 }
             }
@@ -133,22 +205,21 @@ public class Duke {
         showByeMessage();
     }
     //Three methods that are refactored for readability
-    private static int addItemList(String[] itemList, String line, Duke numTasks, int taskCounts, int i) {
-        itemList[i] = line;
+    private static void printLines() {
+
         System.out.print("____________________________________________________________\n");
-        System.out.print("added: " + line);
-        System.out.print("\n____________________________________________________________\n");
-        numTasks.setTaskCount(taskCounts +=1);
-        return taskCounts;
     }
 
+
     private static void showByeMessage() {
+
         System.out.print("____________________________________________________________\n");
         System.out.print("Bye. Hope to see you again soon!\n");
         System.out.print("____________________________________________________________\n");
     }
 
     private static void showWelcomeMessage() {
+
         String logo = "____________________________________________________________\n"
                 + "Hello! I'm Duke \n"
                 + "What can I do for you? \n"
@@ -216,6 +287,3 @@ public class Duke {
         taskCount = t;
     }
 }
-
-
-
