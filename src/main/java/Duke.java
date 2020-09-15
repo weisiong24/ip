@@ -1,9 +1,12 @@
 //Matric Number: A0200273X
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Duke {
-    public static void main(String[] args) {
+    private static ArrayList<String> tasks = new ArrayList<>();
 
+    public static void main(String[] args) {
         showWelcomeMessage();
         //String Array of size 100 created to store item list
         String[] itemList = new String[100];
@@ -40,44 +43,48 @@ public class Duke {
 
                             Task t = new Task(itemList[j]);
                             t.markAsDone();
-                            if(numTasks.getTodoNum()==j+1) {
+                            if(tasks.size()==numTasks.todoNum) {
 
-                                System.out.print(j + 1 + "." + "[" + "T" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
+                                System.out.print(j + 1 +".[T]" +"[" +t.getStatusIcon() +"] " +tasks.get(j) +"\n");
+                                numTasks.todoNum+=1;
 
-                            } else if(numTasks.getDeadlineNum()==j+1) {
+                            } else if(tasks.size()==numTasks.deadlineNum) {
 
-                                System.out.print(j + 1 + "." + "[" + "D" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
+                                System.out.print(j + 1 +".[D]" +"[" +t.getStatusIcon() +"] " +tasks.get(j)  +"\n");
+                                numTasks.deadlineNum+=1;
 
-                            } else if(numTasks.getEventNum()==j+1) {
 
-                                System.out.print(j + 1 + "." + "[" + "E" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
+                            } else if(tasks.size()==numTasks.eventNum) {
+
+                                System.out.print(j + 1 +".[E]" +"[" +t.getStatusIcon() +"] " +tasks.get(j)  +"\n");
+                                numTasks.eventNum+=1;
 
                             } else {
-
-                                System.out.print(j + 1 + "." + "[" + "T" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
-
+                                break;
                             }
 
                         } else {
 
                             Task t = new Task(itemList[j]);
                             t.markUndone();
-                            if(numTasks.getTodoNum()==j+1) {
 
-                                System.out.print(j + 1 + "." + "[" + "T" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
+                            if(tasks.size()==numTasks.todoNum) {
 
-                            } else if(numTasks.getDeadlineNum()==j+1) {
+                                System.out.print(j + 1 +".[T]" +"[" +t.getStatusIcon() +"] " +tasks.get(j) +"\n");
+                                numTasks.todoNum+=1;
 
-                                System.out.print(j + 1 + "." + "[" + "D" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
+                            } else if(tasks.size()==numTasks.deadlineNum) {
 
-                            } else if(numTasks.getEventNum()==j+1) {
+                                System.out.print(j + 1 +".[D]" +"[" +t.getStatusIcon() +"] " +tasks.get(j)  +"\n");
+                                numTasks.deadlineNum+=1;
 
-                                System.out.print(j + 1 + "." + "[" + "E" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
+                            } else if(tasks.size()==numTasks.eventNum) {
+
+                                System.out.print(j + 1 +".[E]" +"[" +t.getStatusIcon() +"] " +tasks.get(j)  +"\n");
+                                numTasks.eventNum+=1;
 
                             } else {
-
-                                System.out.print(j + 1 + "." + "[" + "T" + "]" + "[" + t.getStatusIcon() + "] " + itemList[j] + "\n");
-
+                               break;
                             }
                         }
                     }
@@ -105,11 +112,12 @@ public class Duke {
                         Todo t = new Todo(line.substring(5));
                         printLines();
                         System.out.print("Got it. I've added this task: \n");
-                        System.out.print("\t" + t.toString());
-                        System.out.print("Now you have " + numTasks.getTaskCount() + " tasks in the list.\n");
+                        System.out.print("\t" +t.toString());
+                        System.out.print("Now you have " +numTasks.getTaskCount() +" tasks in the list.\n");
                         printLines();
                         itemList[i] = line.substring(5);
                         numTasks.setTodoNum(numTasks.getTaskCount());
+                        tasks.add(line.substring(5));
 
                     } else {
                         try {
@@ -124,7 +132,6 @@ public class Duke {
                             
                         }
                     }
-
                 } else if(task[0].equals("deadline")) {
                     if(!line.substring(8).equals(" ") && !line.substring(7).equals("e")) {
 
@@ -135,10 +142,11 @@ public class Duke {
                         printLines();
                         System.out.print("Got it. I've added this task: \n");
                         System.out.print("\t" + d.toString());
-                        System.out.print("Now you have " + numTasks.getTaskCount() + " tasks in the list.\n");
+                        System.out.print("Now you have " +numTasks.getTaskCount() +" tasks in the list.\n");
                         printLines();
                         itemList[i] = taskItem;
                         numTasks.setDeadlineNum(numTasks.getTaskCount());
+                        tasks.add(line.substring(9));
                     } else {
                         try {
 
@@ -151,8 +159,7 @@ public class Duke {
                             printLines();
                         }
                     }
-                }
-                else if(task[0].equals("event")) {
+                } else if(task[0].equals("event")) {
 
                     if(!line.substring(5).equals(" ") && !line.substring(4).equals("t")) {
 
@@ -161,11 +168,13 @@ public class Duke {
                         Event e = new Event(taskItem, "");
                         printLines();
                         System.out.print("Got it. I've added this task: \n");
-                        System.out.print("\t" + e.toString());
-                        System.out.print("Now you have " + numTasks.getTaskCount() + " tasks in the list.\n");
+                        System.out.print("\t" +e.toString());
+                        System.out.print("Now you have " +numTasks.getTaskCount() +" tasks in the list.\n");
                         printLines();
                         itemList[i] = taskItem;
                         numTasks.setEventNum(numTasks.getTaskCount());
+                        tasks.add(line.substring(6));
+
 
                     } else {
                         try {
@@ -180,6 +189,31 @@ public class Duke {
 
                         }
                     }
+                } else if(task[0].equals("delete")){
+                    if(!line.substring(6).equals(" ") && !line.substring(5).equals("e")) {
+
+                        Task t = new Task(itemList[i]);
+                        printLines();
+                        System.out.print("Noted. I've removed this task: \n");
+                        tasks.remove(tasks.get(Integer.valueOf(line.substring(7))-1));
+                        System.out.print("\t[E]"  +"[" +t.getStatusIcon() +"] " +itemList[Integer.valueOf(line.substring(7))-1]+"\n");
+                        taskCounts-=1;
+                        System.out.print("Now you have " +Integer.valueOf(numTasks.taskCount-1) +" tasks in the list.\n");
+                        printLines();
+
+                    } else {
+                        try {
+                            i-=1;
+                            throw new DukeException();
+                        } catch (DukeException e) {
+
+                            printLines();
+                            System.out.print("☹ OOPS!!! The delete number command cannot be empty.\n");
+                            printLines();
+
+                        }
+                    }
+
                 } else {
                     try {
 
