@@ -212,11 +212,9 @@ public class Duke {
                             i -= 1;
                             throw new DukeException();
                         } catch (DukeException e) {
-
                             printLines();
                             System.out.print("☹ OOPS!!! The delete number command cannot be empty.\n");
                             printLines();
-
                         }
                     }
 
@@ -237,7 +235,6 @@ public class Duke {
                 line = in.nextLine();
 
                 if (line.equals("bye")) {
-
                     break;
                 }
             }
