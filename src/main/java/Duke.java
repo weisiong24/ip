@@ -196,7 +196,7 @@ public class Duke {
                         printLines();
                         System.out.print("Noted. I've removed this task: \n");
                         tasks.remove(tasks.get(Integer.valueOf(line.substring(7))-1));
-                        System.out.print("\t[E]"  +"[" +t.getStatusIcon() +"] " +tasks.get(i-2)+"\n");
+                        System.out.print("\t[E]"  +"[" +t.getStatusIcon() +"] " +itemList[Integer.valueOf(line.substring(7))-1]+"\n");
                         taskCounts-=1;
                         System.out.print("Now you have " +Integer.valueOf(numTasks.taskCount-1) +" tasks in the list.\n");
                         printLines();
