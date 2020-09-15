@@ -353,7 +353,6 @@ public class Duke {
 
             FileWriter myData = new FileWriter(taskData, true);
 
-
             String[] taskName = description.split(" ");
             switch (taskName[0]) {
             case "todo":
@@ -369,7 +368,6 @@ public class Duke {
                 break;
             }
             myData.close();
-            //System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
