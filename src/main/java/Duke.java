@@ -68,6 +68,7 @@ public class Duke {
                             }
 
                         } else {
+
                             Task t = new Task(itemList[j]);
                             t.markUndone();
                             if(numTasks.getTodoNum()==j+1) {
