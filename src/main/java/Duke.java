@@ -5,11 +5,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Duke {
-    private final static String Dir = "src/main/resource/task.txt";
+
+
+    private final static String Dir = ".\\task.txt";
     private static ArrayList<String> tasks = new ArrayList<>();
 
 
     public static void main(String[] args) {
+        writeFile(Dir,"\n");
+
         System.out.print("Tasks saved previously: \n");
         printLines();
         retrieveFile(Dir);
@@ -331,10 +335,11 @@ public class Duke {
 
     public static void retrieveFile(String taskData) {
         try {
+            String data=" ";
             File myData = new File(taskData);
             Scanner myReader = new Scanner(myData);
             while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
+                data = myReader.nextLine();
                 System.out.println(data);
             }
             myReader.close();
@@ -345,7 +350,9 @@ public class Duke {
 
     public static void writeFile(String taskData, String description) {
         try {
+
             FileWriter myData = new FileWriter(taskData, true);
+
 
             String[] taskName = description.split(" ");
             switch (taskName[0]) {
@@ -362,7 +369,7 @@ public class Duke {
                 break;
             }
             myData.close();
-            System.out.println("Successfully wrote to the file.");
+            //System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
