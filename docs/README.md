@@ -19,61 +19,63 @@ This feature allows user to view all the todo,event and deadline they have previ
 
 ## Usage
 
-### `Keyword` - Describe action
+### `todo` - Adds the todo task into the list
 
-Describe action and its outcome.
+The todo part of the part can be interchange with deadline or event to add a deadline or an event respectively
 
 Example of usage: 
 
-`keyword (optional arguments)`
+`todo Sleep`
+`Event Sleep`
+`deadline tomorrow`
 
 Expected outcome:
 
 `outcome`
 
-### `Keyword` - Describe action
+### `delete` - Delete a task at its index postition
 
-Describe action and its outcome.
+The number 2 can be changed to any index the user wish to delete the task of.
 
 Example of usage: 
 
-`keyword (optional arguments)`
+`delete 2`
 
 Expected outcome:
 
 `outcome`
 
-### `Keyword` - Describe action
+### `done ` - Mark the task at the index specified by the user as done in the list of tasks
 
-Describe action and its outcome.
+The number 2 can be changed to any index the user wish to mark the task as done.
 
 Example of usage: 
 
-`keyword (optional arguments)`
+`done 2`
 
 Expected outcome:
 
 `outcome`
 
-### `Keyword` - Describe action
+### `find` - Find task that contains the worsd that the user is searching
 
-Describe action and its outcome.
+Returns the task names that has the term entered by the user 
 
 Example of usage: 
 
-`keyword (optional arguments)`
+`find return`
 
 Expected outcome:
 
 `outcome`
 
-### `Keyword` - Describe action
+### `list` - Display all the task entered and its parameters
 
-Describe action and its outcome.
+Display all the task entered by the user with the parameter (e.g. the done symbol and the type of task)
 
 Example of usage: 
 
-`keyword (optional arguments)`
+`list`
 
 Expected outcome:
 
