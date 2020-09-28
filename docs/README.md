@@ -32,9 +32,9 @@ Example of usage:
 Expected outcome:
 
 
->Got it. I've added this task: 
->	[T][✘] sleep
->Now you have 1 tasks in the list.
+>Got it. I've added this task: \
+>	[T][✘] sleep\
+>Now you have 1 tasks in the list.\
 
 ### `delete` - Delete a task at its index postition
 
