@@ -4,6 +4,7 @@ public class TaskList {
     protected static ArrayList<String> tasks = new ArrayList<>();
 
     public static int TodoCommand(String[] itemList, String line, Duke numTasks, int taskCounts, int i) {
+
         numTasks.setTaskCount(taskCounts += 1);
         Todo t = new Todo(line.substring(5));
         Ui.printLines();
@@ -16,13 +17,14 @@ public class TaskList {
         tasks.add(line.substring(5));
         Storage.writeFile(Storage.Dir, line);
         return taskCounts;
+
     }
 
     public static int DeadlineCommand(String[] itemList, String line, Duke numTasks, int taskCounts, int i) {
+
         numTasks.setTaskCount(taskCounts += 1);
         String taskItem = line.substring(9);
         Deadline d = new Deadline(taskItem, "");
-
         Ui.printLines();
         System.out.print("Got it. I've added this task: \n");
         System.out.print("\t" + d.toString());
@@ -33,9 +35,11 @@ public class TaskList {
         tasks.add(line.substring(9));
         Storage.writeFile(Storage.Dir, line);
         return taskCounts;
+
     }
 
     public static int EventCommand(String[] itemList, String line, Duke numTasks, int taskCounts, int i) {
+
         numTasks.setTaskCount(taskCounts += 1);
         String taskItem = line.substring(6);
         Event e = new Event(taskItem, "");
@@ -49,9 +53,11 @@ public class TaskList {
         tasks.add(line.substring(6));
         Storage.writeFile(Storage.Dir, line);
         return taskCounts;
+
     }
 
     public static int DeleteCommand(String[] itemList, String line, Duke numTasks, int taskCounts, String description) {
+
         Task t = new Task(description);
         Ui.printLines();
         System.out.print("Noted. I've removed this task: \n");
@@ -61,5 +67,6 @@ public class TaskList {
         System.out.print("Now you have " + Integer.valueOf(numTasks.taskCount - 1) + " tasks in the list.\n");
         Ui.printLines();
         return taskCounts;
+
     }
 }

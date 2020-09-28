@@ -3,9 +3,11 @@ public class Ui {
     static void printLines() {
 
         System.out.print("____________________________________________________________\n");
+
     }
 
     static void showWelcomeMessage() {
+
         Storage.writeFile(Storage.Dir,"\n");
         System.out.print("Tasks saved previously: \n");
         Storage.retrieveFile(Storage.Dir);
@@ -17,6 +19,7 @@ public class Ui {
                 "|_| |_||____||____||____|\\____/\n"
                 + "____________________________________________________________\n";
         System.out.println(logo);
+
     }
 
     static void showByeMessage() {
@@ -24,12 +27,15 @@ public class Ui {
         System.out.print("____________________________________________________________\n");
         System.out.print("Bye. Hope to see you again soon!\n");
         System.out.print("____________________________________________________________\n");
+
     }
 
     public static int TodoErrorMessage(int i) {
         try {
+
             i -= 1;
             throw new DukeException();
+
         } catch (DukeException e) {
 
             printLines();
@@ -45,6 +51,7 @@ public class Ui {
 
             i -= 1;
             throw new DukeException();
+
         } catch (DukeException e) {
 
             printLines();
@@ -71,12 +78,16 @@ public class Ui {
 
     public static int DeleteErrorMessage(int i) {
         try {
+
             i -= 1;
             throw new DukeException();
+
         } catch (DukeException e) {
+
             printLines();
             System.out.print("☹ OOPS!!! The delete number command cannot be empty.\n");
             printLines();
+
 
         }
         return i;
@@ -84,6 +95,7 @@ public class Ui {
 
     public static int ErrorMessage(int i) {
         try {
+
             i -= 1;
             throw new DukeException();
 
