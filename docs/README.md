@@ -31,11 +31,11 @@ Example of usage:
 
 Expected outcome:
 
-`____________________________________________________________
-Got it. I've added this task: 
-	[T][✘] sleep
-Now you have 1 tasks in the list.
-____________________________________________________________`
+`____________________________________________________________`
+`Got it. I've added this task: `
+`	[T][✘] sleep`
+`Now you have 1 tasks in the list.`
+`____________________________________________________________`
 
 ### `delete` - Delete a task at its index postition
 
