@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Duke {
 
     protected final static int SIZE =100;
-
+    //Main Method of the program to run the commands
     public static void main(String[] args) {
 
         Ui.printLines();

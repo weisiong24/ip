@@ -1,11 +1,11 @@
 public class Ui {
-
+    //Method to print lines for user interfaces
     static void printLines() {
 
         System.out.print("____________________________________________________________\n");
 
     }
-
+    //Method to show a Welcome message in the beginning of the app
     static void showWelcomeMessage() {
 
         Storage.writeFile(Storage.Dir,"\n");
@@ -21,7 +21,7 @@ public class Ui {
         System.out.println(logo);
 
     }
-
+    //Method to display goodbye message when bye command is entered
     static void showByeMessage() {
 
         System.out.print("____________________________________________________________\n");
@@ -29,7 +29,7 @@ public class Ui {
         System.out.print("____________________________________________________________\n");
 
     }
-
+    //Method to display an error message when task is not entered after to do command
     public static int TodoErrorMessage(int i) {
         try {
 
@@ -45,7 +45,7 @@ public class Ui {
         }
         return i;
     }
-
+    //Method to display an error message when task is not entered after deadline command
     public static int DeadlineErrorMessage(int i) {
         try {
 
@@ -60,7 +60,7 @@ public class Ui {
         }
         return i;
     }
-
+    //Method to display an error message when task is not entered after event command
     public static int EventErrorMessage(int i) {
         try {
 
@@ -75,7 +75,7 @@ public class Ui {
         }
         return i;
     }
-
+    //Method to display an error message when index of the task to be deleted after delete command is empty
     public static int DeleteErrorMessage(int i) {
         try {
 
@@ -92,7 +92,7 @@ public class Ui {
         }
         return i;
     }
-
+    //Method to display an error message when other command not recognised is entered
     public static int ErrorMessage(int i) {
         try {
 

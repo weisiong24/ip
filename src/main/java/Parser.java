@@ -1,4 +1,5 @@
 public class Parser {
+    //Method to list all the tasks entered and their current status
     static void ListCommand(String[] itemList, Duke numTasks, int j) {
         if(numTasks.getNumTasks()== j +1) {
 
@@ -46,7 +47,7 @@ public class Parser {
             }
         }
     }
-
+    //Method to mark a task as done using the index of the task
     public static void DoneCommand(String[] itemList, Duke numTasks, String description, String s) {
 
         Task t = new Task(description);

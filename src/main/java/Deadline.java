@@ -9,7 +9,7 @@ public class Deadline extends Task {
         this.by = by;
     }
 
-    //Override Methods when to do class is called
+    //Override Methods when deadline class is called
     @Override
     public String toString() {
         return "[D]" +"["+getStatusIcon()+"] "+ description+"\n" ;
