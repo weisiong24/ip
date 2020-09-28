@@ -32,9 +32,9 @@ Example of usage:
 Expected outcome:
 
 
->Got it. I've added this task: <br />
->	[T][✘] sleep<br />
->Now you have 1 tasks in the list.
+Got it. I've added this task: <br />
+[T][✘] sleep<br />
+Now you have 1 tasks in the list.
 
 ### `delete` - Delete a task at its index postition
 
@@ -46,7 +46,12 @@ Example of usage:
 
 Expected outcome:
 
-`outcome`
+____________________________________________________________<br />
+Here are the tasks in your list:<br />
+____________________________________________________________<br />
+1.[T][✘] sleep<br />
+2.[D][✘] tomorrow<br />
+____________________________________________________________
 
 ### `done ` - Mark the task at the index specified by the user as done in the list of tasks
 
