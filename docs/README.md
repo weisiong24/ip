@@ -30,11 +30,12 @@ Example of usage:
 `deadline tomorrow`
 
 Expected outcome:
-
-
-Got it. I've added this task: <br />
-[T][✘] sleep<br />
-Now you have 1 tasks in the list.
+todo sleep<br />
+____________________________________________________________<br />
+Got it. I've added this task:<br />
+	[T][✘] sleep<br />
+Now you have 1 tasks in the list.<br />
+____________________________________________________________<br />
 
 ### `delete` - Delete a task at its index postition
 
@@ -51,7 +52,7 @@ Here are the tasks in your list:<br />
 ____________________________________________________________<br />
 1.[T][✘] sleep<br />
 2.[D][✘] tomorrow<br />
-____________________________________________________________
+____________________________________________________________<br />
 
 ### `done ` - Mark the task at the index specified by the user as done in the list of tasks
 
@@ -68,7 +69,7 @@ done 1<br />
 ____________________________________________________________<br />
 Nice! I've marked this task as done: <br />
 	[✓] sleep<br />
-____________________________________________________________
+____________________________________________________________<br />
 
 
 ### `find` - Find task that contains the worsd that the user is searching
@@ -86,7 +87,7 @@ find sleep<br />
 ____________________________________________________________<br />
 Here are the matching tasks in your list: <br />
 1.[T][✘] sleep<br />
-____________________________________________________________
+____________________________________________________________<br />
 
 
 ### `list` - Display all the task entered and its parameters
@@ -104,4 +105,4 @@ Here are the tasks in your list:<br />
 ____________________________________________________________<br />
 1.[T][✓] sleep<br />
 2.[D][✘] tomorrow<br />
-____________________________________________________________
+____________________________________________________________<br />
