@@ -71,11 +71,11 @@ ____________________________________________________________<br />
 
 ### `done ` - Mark the task at the index specified by the user as done in the list of tasks
 
-The number 2 can be changed to any index the user wish to mark the task as done.
+The number 1 can be changed to any index the user wish to mark the task as done.
 
 Example of usage: 
 
-`done 2`
+`done 1`
 
 Expected outcome:
 
@@ -87,7 +87,7 @@ Nice! I've marked this task as done: <br />
 ____________________________________________________________<br />
 
 
-### `find` - Find task that contains the worsd that the user is searching
+### `find` - Find task that contains the word that the user is searching
 
 Returns the task names that has the term entered by the user 
 
