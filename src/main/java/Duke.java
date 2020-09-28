@@ -33,6 +33,7 @@ public class Duke {
                     for(int j=0;j<i;j++) {
 
                         Parser.ListCommand(itemList, numTasks, j);
+
                     }
                     i -= 1;
 
@@ -54,6 +55,7 @@ public class Duke {
 
                     }
                 } else if (task[0].equals("deadline")) {
+
                     if (!line.substring(8).equals(" ") && !line.substring(7).equals("e")) {
 
                         taskCounts = TaskList.DeadlineCommand(itemList, line, numTasks, taskCounts, i);
@@ -68,7 +70,6 @@ public class Duke {
                     if (!line.substring(5).equals(" ") && !line.substring(4).equals("t")) {
 
                         taskCounts = TaskList.EventCommand(itemList, line, numTasks, taskCounts, i);
-
 
                     } else {
 
@@ -87,6 +88,10 @@ public class Duke {
 
                     }
 
+                } else if (task[0].equals("find")) {
+
+                    Parser.FindCommand(itemList, numTasks, i, task[1]);
+
                 } else {
 
                     i = Ui.ErrorMessage(i);
@@ -104,6 +109,7 @@ public class Duke {
         }
         Ui.showByeMessage();
     }
+
     /**
      * Getter and setter to get task number from done command and send that number to list command
      * Getter and setter for task count to show number of tasks that are entered
