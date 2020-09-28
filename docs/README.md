@@ -30,7 +30,7 @@ Example of usage:
 `deadline tomorrow`
 
 Expected outcome:
-
+____________________________________________________________<br />
 todo sleep<br />
 ____________________________________________________________<br />
 Got it. I've added this task:<br />
