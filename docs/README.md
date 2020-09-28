@@ -63,7 +63,13 @@ Example of usage:
 
 Expected outcome:
 
-`outcome`
+____________________________________________________________<br />
+done 1<br />
+____________________________________________________________<br />
+Nice! I've marked this task as done: <br />
+	[✓] sleep<br />
+____________________________________________________________
+
 
 ### `find` - Find task that contains the worsd that the user is searching
 
@@ -75,7 +81,13 @@ Example of usage:
 
 Expected outcome:
 
-`outcome`
+____________________________________________________________<br />
+find sleep<br />
+____________________________________________________________<br />
+Here are the matching tasks in your list: <br />
+1.[T][✘] sleep<br />
+____________________________________________________________
+
 
 ### `list` - Display all the task entered and its parameters
 
@@ -87,5 +99,9 @@ Example of usage:
 
 Expected outcome:
 
-`outcome`
-
+____________________________________________________________<br />
+Here are the tasks in your list:<br />
+____________________________________________________________<br />
+1.[T][✓] sleep<br />
+2.[D][✘] tomorrow<br />
+____________________________________________________________
