@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class TaskList {
     protected static ArrayList<String> tasks = new ArrayList<>();
-
+    //Method to add a to do task and display number of tasks added previously
     public static int TodoCommand(String[] itemList, String line, Duke numTasks, int taskCounts, int i) {
         numTasks.setTaskCount(taskCounts += 1);
         Todo t = new Todo(line.substring(5));
@@ -17,7 +17,7 @@ public class TaskList {
         Storage.writeFile(Storage.Dir, line);
         return taskCounts;
     }
-
+    //Method to add a deadline task and display number of tasks added previously
     public static int DeadlineCommand(String[] itemList, String line, Duke numTasks, int taskCounts, int i) {
         numTasks.setTaskCount(taskCounts += 1);
         String taskItem = line.substring(9);
@@ -34,7 +34,7 @@ public class TaskList {
         Storage.writeFile(Storage.Dir, line);
         return taskCounts;
     }
-
+    //Method to add an event task and display number of tasks added previously
     public static int EventCommand(String[] itemList, String line, Duke numTasks, int taskCounts, int i) {
         numTasks.setTaskCount(taskCounts += 1);
         String taskItem = line.substring(6);
@@ -50,7 +50,7 @@ public class TaskList {
         Storage.writeFile(Storage.Dir, line);
         return taskCounts;
     }
-
+    //Method to perform deletion using the index of the item and displaying the tasks left
     public static int DeleteCommand(String[] itemList, String line, Duke numTasks, int taskCounts, String description) {
         Task t = new Task(description);
         Ui.printLines();

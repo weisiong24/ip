@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Duke {
 
     protected final static int SIZE =100;
-
+    //Main Method of the program to run the commands
     public static void main(String[] args) {
 
         Ui.printLines();
@@ -54,6 +54,7 @@ public class Duke {
 
                     }
                 } else if (task[0].equals("deadline")) {
+
                     if (!line.substring(8).equals(" ") && !line.substring(7).equals("e")) {
 
                         taskCounts = TaskList.DeadlineCommand(itemList, line, numTasks, taskCounts, i);

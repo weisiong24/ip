@@ -11,16 +11,19 @@ public class Task {
 
     //Return tick or X symbols
     public String getStatusIcon() {
-        return (isDone ? "\u2713" : "\u2718");
+        return (
+                isDone ? "\u2713" : "\u2718");
     }
 
     //Method to mark task when it is done
     public void markAsDone() {
+
         this.isDone = true;
     }
 
     //Method to mark task as undone
     public void markUndone() {
+
         this.isDone = false;
     }
 }

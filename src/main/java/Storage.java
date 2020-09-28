@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Storage {
 
     protected final static String Dir = ".\\task.txt";
-
+    //Method to read the tasks in the file of the previous saved tasks text file
     public static void retrieveFile(String taskData) {
         try {
             String data=" ";
@@ -22,7 +22,7 @@ public class Storage {
             e.printStackTrace();
         }
     }
-
+    //Method to write the tasks entered to a text file
     public static void writeFile(String taskData, String description) {
         try {
 

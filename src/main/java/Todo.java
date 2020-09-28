@@ -10,9 +10,10 @@ public class Todo extends Task {
     public void markAsDone() {
         this.isDone = true;
     }
-
+    //Override Methods when toString is called
     @Override
     public String toString() {
+
         return "[T]" +"["+getStatusIcon()+"] "+ description+"\n" ;
     }
 
