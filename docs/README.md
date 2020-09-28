@@ -87,7 +87,7 @@ Nice! I've marked this task as done: <br />
 ____________________________________________________________<br />
 
 
-### `find` - Find task that contains the word that the user is searching
+### `find` - Find all the tasks that contains the same task name that the user is searching
 
 Returns the task names that has the term entered by the user 
 
