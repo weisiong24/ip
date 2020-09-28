@@ -34,10 +34,23 @@ Expected outcome:
 ____________________________________________________________<br />
 todo sleep<br />
 ____________________________________________________________<br />
-Got it. I've added this task:<br />
+Got it. I've added this task:<br /> 
 	[T][✘] sleep<br />
 Now you have 1 tasks in the list.<br />
 ____________________________________________________________<br />
+event sleep<br />
+____________________________________________________________<br />
+Got it. I've added this task:<br />
+	[E][✘] sleep<br />
+Now you have 2 tasks in the list.<br />
+____________________________________________________________<br />
+deadline tomorrow<br />
+____________________________________________________________<br />
+Got it. I've added this task: <br />
+	[D][✘] tomorrow<br />
+Now you have 3 tasks in the list.<br />
+____________________________________________________________<br />
+
 
 ### `delete` - Delete a task at its index postition
 
